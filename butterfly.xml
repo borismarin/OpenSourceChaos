@@ -23,6 +23,12 @@
         <Line id ="y" quantity="y" scale="1" color="#0000ff" timeScale="1s"/>
     </Display>
 
+    <OutputFile id="out" fileName="lorenz.dat">
+        <OutputColumn id="x" quantity="x"/>
+        <OutputColumn id="y" quantity="y"/>
+        <OutputColumn id="z" quantity="z"/>
+    </OutputFile>
+
 </Simulation>
 
 </Lems>
