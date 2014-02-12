@@ -1,0 +1,34 @@
+<Lems>
+
+<Include file="BaseUnits.xml"/>
+<Include file="SingleSimulation.xml"/>
+<Include file="Rössler1976.xml"/>
+
+<!-- Specify which component to run -->
+<Target component="sim1"/>
+
+<!-- parameter set for chaotic attractor -->
+<Rossler id="rossler" a="0.2" b="0.2" c="5.7"
+    x0="1.0" y0="1.0" z0="1.0"/>
+
+<Simulation id="sim1" length="100s" step="0.001s" target="rossler" method="rk4">
+
+    <Display id="d1" title="x timeseries"
+        timeScale="1s" xmin="0" xmax="100" ymin="-30" ymax="30">
+        <Line id ="x" quantity="x" scale="1" color="#ff0000" timeScale="1s"/>
+    </Display>
+    
+    <Display id="d2" title="y timeseries"
+        timeScale="1s" xmin="0" xmax="100" ymin="-30" ymax="30">
+        <Line id ="y" quantity="y" scale="1" color="#0000ff" timeScale="1s"/>
+    </Display>
+
+    <OutputFile id="out" fileName="rossler.dat">
+        <OutputColumn id="x" quantity="x"/>
+        <OutputColumn id="y" quantity="y"/>
+        <OutputColumn id="z" quantity="z"/>
+    </OutputFile>
+
+</Simulation>
+
+</Lems>

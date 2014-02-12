@@ -1,0 +1,63 @@
+<Lems xmlns="http://www.neuroml.org/lems/0.6"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.neuroml.org/lems/0.6 https://raw.github.com/LEMS/LEMS/master/Schemas/LEMS/LEMS_v0.6.xsd">
+
+<!--
+
+    LEMS definition of the Rössler system, inspired by Lorenz's
+    equations but generating a single spiral structure with a
+    horseshoe-like Poincarésecti on.
+    Initially describeded in 
+
+    Rössler, O. E. (1976), "An Equation for Continuous Chaos", Physics
+    Letters 57A (5): 397–398.
+
+-->
+
+<Include file="BaseUnits.xml"/>
+
+<ComponentType name="Rossler"
+    description=" Rössler equations ">
+    
+    <Parameter name="a" dimension="none" description="a parameter,
+        0.2 in the original article"/>
+    <Parameter name="b" dimension="none" description="b parameter,
+        0.2 in the original article"/>
+    <Parameter name="c" dimension="none" description="c parameter, 
+        5.7 in the original article"/>
+
+    <!-- Initial Conditions -->
+    <Parameter name="x0" dimension="none"/>
+    <Parameter name="y0" dimension="none"/>
+    <Parameter name="z0" dimension="none"/>
+
+
+    <Exposure name="x" dimension="none"/>
+    <Exposure name="y" dimension="none"/>
+    <Exposure name="z" dimension="none"/>
+
+    <Constant name="sec" dimension="time" value="1s"/>
+    
+    <Dynamics>
+        
+        <StateVariable name="x" dimension="none" exposure="x"/>
+        <StateVariable name="y" dimension="none" exposure="y"/>
+        <StateVariable name="z" dimension="none" exposure="z"/>
+
+        <TimeDerivative variable="x" value="(- y - z )/ sec"/>
+        <TimeDerivative variable="y" value="(  x + a * y ) / sec"/>
+        <TimeDerivative variable="z" value="( b + z * (x - c) ) / sec"/>
+        
+        <OnStart>
+            <StateAssignment variable="x" value="x0"/>
+            <StateAssignment variable="y" value="y0"/>
+            <StateAssignment variable="z" value="z0"/>
+        </OnStart>
+        
+    </Dynamics>
+    
+</ComponentType>
+
+
+</Lems>
+
