@@ -1,0 +1,44 @@
+<Lems>
+
+<Include file="BaseUnits.xml"/>
+<Include file="SingleSimulation.xml"/>
+<Include file="DoublePendulum.xml"/>
+<Include file="SomeDoublePendula.xml"/>
+
+<Target component="sim1"/>
+<SomeDoublePendula id="pendula">
+  <DoublePendulum id="dpend1" l="1m" m="1kg" g="1m_per_s2"
+    theta1_0="1.0" theta2_0="0.0" p1_0="0kg_m2_per_s" p2_0="0kg_m2_per_s"/>
+  <DoublePendulum id="dpend2" l="1m" m="1kg" g="1m_per_s2"
+    theta1_0="1.0001" theta2_0="0.0" p1_0="0kg_m2_per_s" p2_0="0kg_m2_per_s"/>
+</SomeDoublePendula>
+
+<Simulation id="sim1" length="200s" step="0.001s" target="pendula" method="rk4">
+
+    <Display id="d1" title="theta1 timeseries"
+        timeScale="1s" xmin="0" xmax="100" ymin="-7" ymax="7">
+        <Line id ="pend1 th1" quantity="dpend1/theta1" scale="1" color="#0000ff" timeScale="1s"/>
+        <Line id ="pend2 th1" quantity="dpend2/theta1" scale="1" color="#ff0000" timeScale="1s"/>
+    </Display>
+    
+    <Display id="d2" title="theta2 timeseries"
+        timeScale="1s" xmin="0" xmax="100" ymin="-7" ymax="7">
+        <Line id ="pend1 th2" quantity="dpend1/theta2" scale="1" color="#0000ff" timeScale="1s"/>
+        <Line id ="pend2 th2" quantity="dpend2/theta2" scale="1" color="#ff0000" timeScale="1s"/>
+    </Display>
+
+    <OutputFile id="out" fileName="two_dpend.dat">
+        <OutputColumn id="th1_1" quantity="dpend1/theta1"/>
+        <OutputColumn id="th2_1" quantity="dpend1/theta2"/>
+        <OutputColumn id="p1_1" quantity="dpend1/p1"/>
+        <OutputColumn id="p2_1" quantity="dpend1/p2"/>
+
+        <OutputColumn id="th1_2" quantity="dpend2/theta1"/>
+        <OutputColumn id="th2_2" quantity="dpend2/theta2"/>
+        <OutputColumn id="p1_2" quantity="dpend2/p1"/>
+        <OutputColumn id="p2_2" quantity="dpend2/p2"/>
+    </OutputFile>
+
+</Simulation>
+
+</Lems>
