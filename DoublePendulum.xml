@@ -1,0 +1,65 @@
+<Lems xmlns="http://www.neuroml.org/lems/0.6"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.neuroml.org/lems/0.6 https://raw.github.com/LEMS/LEMS/master/Schemas/LEMS/LEMS_v0.6.xsd">
+
+<!--
+
+    LEMS definition of a double pendulum.
+
+-->
+
+<Include file="BaseUnits.xml"/>
+
+<ComponentType name="DoublePendulum"
+    description="Equations of motion for two identical limbs with mass _m_ and length _l_ ">
+    
+    <Parameter name="m" dimension="mass" description="Mass of each limb"/>
+    <Parameter name="l" dimension="length" description="Length of each limb"/>
+    <Parameter name="g" dimension="acceleration" description="Gravitational acceleration"/>
+
+    <!-- Initial Conditions -->
+    <Parameter name="theta1_0" dimension="none"/>
+    <Parameter name="theta2_0" dimension="none"/>
+    <Parameter name="p1_0" dimension="angular_momentum"/>
+    <Parameter name="p2_0" dimension="angular_momentum"/>
+
+
+    <Exposure name="theta1" dimension="none"/>
+    <Exposure name="theta2" dimension="none"/>
+    <Exposure name="p1" dimension="angular_momentum"/>
+    <Exposure name="p2" dimension="angular_momentum"/>
+
+    
+    <Dynamics>
+        
+        <StateVariable name="theta1" dimension="none" exposure="theta1"/>
+        <StateVariable name="theta2" dimension="none" exposure="theta2"/>
+        <StateVariable name="p1" dimension="angular_momentum" exposure="p1"/>
+        <StateVariable name="p2" dimension="angular_momentum" exposure="p2"/>
+		
+		<DerivedVariable name="cdt" dimension="none" value="cos(theta1-theta2)"/>
+		<DerivedVariable name="sdt" dimension="none" value="sin(theta1-theta2)"/>
+		<DerivedVariable name="ml2" dimension="angular_mass" value="m*l*l"/>
+		<DerivedVariable name="dtheta1" dimension="per_time" value="6/ml2*(2*p1 - 3*cdt*p2)/(16 - 9*cdt^2)"/>
+		<DerivedVariable name="dtheta2" dimension="per_time" value="6/ml2*(8*p2 - 3*cdt*p1)/(16 - 9*cdt^2)"/>
+		
+
+        <TimeDerivative variable="theta1" value="dtheta1"/>
+        <TimeDerivative variable="theta2" value="dtheta2"/>
+        <TimeDerivative variable="p1" value="-0.5*ml2*(dtheta1*dtheta2*sdt + 3*g/l*sin(theta1))"/>
+        <TimeDerivative variable="p2" value="-0.5*ml2*(-dtheta1*dtheta2*sdt + g/l*sin(theta2))"/>
+        
+        <OnStart>
+            <StateAssignment variable="theta1" value="theta1_0"/>
+            <StateAssignment variable="theta2" value="theta2_0"/>
+            <StateAssignment variable="p1" value="p1_0"/>
+            <StateAssignment variable="p2" value="p2_0"/>
+        </OnStart>
+        
+    </Dynamics>
+    
+</ComponentType>
+
+
+</Lems>
+

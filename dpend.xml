@@ -1,0 +1,35 @@
+<Lems>
+
+<Include file="BaseUnits.xml"/>
+<Include file="SingleSimulation.xml"/>
+<Include file="DoublePendulum.xml"/>
+
+<!-- Specify which component to run -->
+<Target component="sim1"/>
+
+<!-- parameter set for chaotic attractor -->
+<DoublePendulum id="dpend" l="1m" m="1kg" g="1m_per_s2"
+    theta1_0="1.0" theta2_0="0.0" p1_0="0kg_m2_per_s" p2_0="0kg_m2_per_s"/>
+
+<Simulation id="sim1" length="100s" step="0.001s" target="dpend" method="rk4">
+
+    <Display id="d1" title="theta1 timeseries"
+        timeScale="1s" xmin="0" xmax="100" ymin="-10" ymax="10">
+        <Line id ="th1" quantity="theta1" scale="1" color="#ff0000" timeScale="1s"/>
+    </Display>
+    
+    <Display id="d2" title="theta2 timeseries"
+        timeScale="1s" xmin="0" xmax="100" ymin="-10" ymax="10">
+        <Line id ="y" quantity="theta2" scale="1" color="#0000ff" timeScale="1s"/>
+    </Display>
+
+    <OutputFile id="out" fileName="dpend.dat">
+        <OutputColumn id="th1" quantity="theta1"/>
+        <OutputColumn id="th2" quantity="theta2"/>
+        <OutputColumn id="p1" quantity="p1"/>
+        <OutputColumn id="p2" quantity="p2"/>
+    </OutputFile>
+
+</Simulation>
+
+</Lems>
