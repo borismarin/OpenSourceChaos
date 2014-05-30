@@ -23,6 +23,11 @@
         <Line id ="y" quantity="y" scale="1" color="#0000ff" timeScale="1s"/>
     </Display>
 
+    <Display id="d3" title="z timeseries"
+        timeScale="1s" xmin="0" xmax="100" ymin="-30" ymax="30">
+        <Line id ="z" quantity="z" scale="1" color="#00ff00" timeScale="1s"/>
+    </Display>
+
     <OutputFile id="out" fileName="lorenz.dat">
         <OutputColumn id="x" quantity="x"/>
         <OutputColumn id="y" quantity="y"/>
