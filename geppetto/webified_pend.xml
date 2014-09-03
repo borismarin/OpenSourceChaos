@@ -14,8 +14,13 @@
 <Simulation id="sim1" length="100s" step="0.001s" target="pend">
 
     <Display id="d1" title="theta timeseries"
-        timeScale="1s" xmin="0" xmax="100" ymin="-10" ymax="10">
+        timeScale="1s" xmin="0" xmax="100" ymin="-2" ymax="2">
         <Line id ="th" quantity="theta" scale="1" color="#ff0000" timeScale="1s"/>
+    </Display>
+    
+    <Display id="d2" title="p timeseries"
+        timeScale="1s" xmin="0" xmax="100" ymin="-2" ymax="2">
+        <Line id ="p" quantity="p" scale="1" color="#0000ff" timeScale="1s"/>
     </Display>
     
 </Simulation>
