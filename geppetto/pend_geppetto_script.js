@@ -23,7 +23,7 @@ Popup1.setPosition(710,398);
 Popup1.setSize(160,498);
 
 //Adding sphere colour modulation
-window.setTimeout(function(){Simulation.addBrightnessFunction("pend.electrical", "pend.electrical.SimulationTree.theta", function(x){return (x+0.06)/0.06;})},500);
+window.setTimeout(function(){Simulation.addBrightnessFunction("pend.electrical", "pend.electrical.SimulationTree.theta", function(x){return x})},500);
 
 G.incrementCameraZoom(-0.15);
 
