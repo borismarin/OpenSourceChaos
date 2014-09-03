@@ -4,7 +4,7 @@
 	<tns:entity>
 		<tns:id>pend</tns:id>
 		<tns:aspect>
-			<tns:id>electrical</tns:id>
+			<tns:id>mechanical</tns:id>
 			<tns:simulator>
 				<tns:simulatorId>jLemsSimulator</tns:simulatorId>
 			</tns:simulator>
