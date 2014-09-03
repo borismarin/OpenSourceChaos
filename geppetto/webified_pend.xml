@@ -23,11 +23,6 @@
         <Line id ="p" quantity="p" scale="1" color="#0000ff" timeScale="1s"/>
     </Display>
 
-    <OutputFile id="out" fileName="pend.dat">
-        <OutputColumn id="th" quantity="theta"/>
-        <OutputColumn id="p" quantity="p"/>
-    </OutputFile>
-
 </Simulation>
 
 </Lems>
