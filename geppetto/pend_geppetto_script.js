@@ -19,7 +19,7 @@ Plot2.setPosition(93,339);
 Plot2.setSize(230,510);
 Plot2.setName("angular momentum");
 Plot2.setOptions(options);
-Plot1.plotData("pend.mechanical.SimulationTree.p");
+Plot2.plotData("pend.mechanical.SimulationTree.p");
 
 
 //Adding silly info
