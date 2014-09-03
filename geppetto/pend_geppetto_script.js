@@ -1,4 +1,4 @@
-Simulation.addWatchLists([{name:"hhvars",variablePaths:["pend.electrical.SimulationTree.theta", "pend.electrical.SimulationTree.p",]}]);
+Simulation.addWatchLists([{name:"pendvars",variablePaths:["pend.electrical.SimulationTree.theta", "pend.electrical.SimulationTree.p",]}]);
 Simulation.startWatch();
 Simulation.start();
 
@@ -7,7 +7,7 @@ Simulation.start();
 
 G.addWidget(Widgets.PLOT);
 Plot1.setName("Simple pendulum");
-options = {yaxis:{min:-10,max:10},xaxis:{min:0,max:400,show:false}};
+options = {yaxis:{min:-10,max:10},xaxis:{min:0,max:100,show:false}};
 Plot1.setOptions(options);
 Plot1.setPosition(93,88);
 Plot1.setSize(230,510);
