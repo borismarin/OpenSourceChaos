@@ -4,7 +4,7 @@
 	<tns:entity>
 		<tns:id>car_entity</tns:id>
 		<tns:aspect>
-			<tns:id>mechanical</tns:id>
+			<tns:id>electrical</tns:id>
 			<tns:simulator>
 				<tns:simulatorId>jLemsSimulator</tns:simulatorId>
 			</tns:simulator>
