@@ -1,0 +1,93 @@
+<Lems>
+
+<!-- units -->
+<Dimension name="time" t="1"/>
+<Dimension name="length" l="1"/>
+<Dimension name="per_time" t="-1"/>
+<Dimension name="velocity" l="1" t="-1"/>
+<Unit symbol="s" dimension="time"/>
+<Unit symbol="m" dimension="length"/>
+<Unit symbol="per_s" dimension="per_time"/>
+<Unit symbol="m_per_s" dimension="velocity"/>
+
+
+<!-- silly comptype -->
+<ComponentType name="Silly" description="silly 1d kinematics">
+    <Parameter name="v" dimension="velocity" description="velocity"/>
+    <Parameter name="x0" dimension="length"/>
+    <Exposure name="x" dimension="length"/>
+    
+    <Dynamics>
+        <StateVariable name="x" dimension="length" exposure="x"/>
+        <TimeDerivative variable="x" value="v"/>
+        <OnStart>
+            <StateAssignment variable="x" value="x0"/>
+        </OnStart>
+    </Dynamics>
+</ComponentType>
+
+
+
+<!-- stuff pasted from Simulation.xml in NeuroML -->
+<ComponentType name="Display">
+	<Parameter name="xmin" dimension="none"/>
+	<Parameter name="xmax" dimension="none"/>
+	<Parameter name="ymin" dimension="none"/>
+	<Parameter name="ymax" dimension="none"/>
+
+	<Parameter name="timeScale" dimension="time"/>
+	<Children name="lines" type="Line"/>
+	<Text name="title"/>   
+
+	<Simulation>
+		<DataDisplay title="title" dataRegion="xmin,xmax,ymin,ymax"/>
+	</Simulation>
+</ComponentType>
+
+<ComponentType name="Line">
+	<Parameter name="scale" dimension="*"/>
+	 <Parameter name="timeScale" dimension="*"/>
+	<Path name="quantity"/>
+	<Text name="color"/>
+	<Simulation>
+		<Record quantity="quantity" timeScale="timeScale" scale="scale" color="color"/>
+	</Simulation>
+</ComponentType>
+
+<ComponentType name="Simulation">
+	<Parameter name="length" dimension="time"/>
+	<Parameter name="step" dimension="time"/>
+
+	<Children name="displays" type="Display"/>
+	<!-- <Children name="outputs" type="OutputFile"/> -->
+
+	<ComponentReference name="target" type="Component"/>
+
+	<Dynamics>
+		<StateVariable name="t" dimension="time"/>
+	</Dynamics>
+
+	<Simulation>
+		<Run component="target" variable="t" increment="step" total="length"/>
+	</Simulation>
+</ComponentType>
+
+
+
+
+
+<!-- simulation definition -->
+<Target component="sim1"/>
+
+<Silly id="car" v="2m_per_s" x0="0.0m"/>
+
+<Simulation id="sim1" length="100s" step="0.1s" target="car">
+
+    <Display id="plot1" title="x timeseries"
+        timeScale="1s" xmin="0" xmax="100" ymin="0" ymax="200">
+        <Line id ="pos" quantity="x" scale="1" color="#ff0000" timeScale="1s"/>
+    </Display>
+    
+</Simulation>
+
+</Lems>
