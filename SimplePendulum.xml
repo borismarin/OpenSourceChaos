@@ -8,7 +8,7 @@
 
 -->
 
-<Include file="BaseUnits.xml"/>
+<Include url="https://raw.githubusercontent.com/borismarin/OpenSourceChaos/geppetto_tests/BaseUnits.xml"/>
 
 <ComponentType name="SimplePendulum"
     description="Equations of motion for a simple pendulum with mass _m_ and length _l_ ">
