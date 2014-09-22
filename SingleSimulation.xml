@@ -1,6 +1,6 @@
 <Lems>
 
-<Include url="https://raw.githubusercontent.com/borismarin/OpenSourceChaos/geppetto_tests/BaseUnits.xml"/>
+<Include file="BaseUnits.xml"/>
 
 <ComponentType name="Display">
     <Text name="title"/>   
