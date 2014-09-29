@@ -9,7 +9,7 @@
 <SimplePendulum id="pend" l="1m" m="1kg" g="1m_per_s2"
     theta_0="1.0"  p_0="0kg_m2_per_s"/>
 
-<Simulation id="sim1" length="100s" step="0.001s" target="pend">
+<Simulation id="sim1" length="100s" step="0.01s" target="pend">
 
     <Display id="d1" title="theta timeseries"
         timeScale="1s" xmin="0" xmax="100" ymin="-2" ymax="2">
