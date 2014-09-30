@@ -29,5 +29,5 @@ Popup1.setName("Description");
 Popup1.setPosition(710,398);
 Popup1.setSize(160,498);
 
-Simulation.addDynamicVisualization(pend.visual, pend.mechanical.SimulationTree.theta, GEPPETTO.setLocalRotationZ, function(x){return x});
+Simulation.addDynamicVisualization("pivot0", pend.mechanical.SimulationTree.theta, GEPPETTO.setLocalRotationZ, function(x){return x});
 
