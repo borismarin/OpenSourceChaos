@@ -8,7 +8,8 @@
 
 -->
 
-<Include file="BaseUnits.xml"/>
+<!-- <Include file="BaseUnits.xml"/> -->
+<Include url="https://raw.githubusercontent.com/borismarin/OpenSourceChaos/geppetto_tests/BaseUnits.xml"/>
 
 <ComponentType name="DoublePendulum"
     description="Equations of motion for two identical limbs with mass _m_ and length _l_ ">
