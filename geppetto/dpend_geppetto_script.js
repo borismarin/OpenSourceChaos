@@ -4,12 +4,12 @@ Simulation.start();
 
 
 G.addWidget(Widgets.PLOT);
-Plot1.setName("angle arm0");
+Plot1.setName("angle arm1");
 options = {yaxis:{min:-2,max:2},xaxis:{min:0,max:100,show:false}};
 Plot1.setOptions(options);
 Plot1.setPosition(93,88);
 Plot1.setSize(230,510);
-Plot1.plotData(pend.mechanical.SimulationTree.theta0);
+Plot1.plotData(pend.mechanical.SimulationTree.theta1);
 
 G.wait(100);
 
@@ -17,9 +17,9 @@ G.addWidget(Widgets.PLOT);
 options = {yaxis:{min:-2,max:2},xaxis:{min:0,max:100,show:false}};
 Plot2.setPosition(93,339);
 Plot2.setSize(230,510);
-Plot2.setName("angular momentum arm0");
+Plot2.setName("angle arm2");
 Plot2.setOptions(options);
-Plot2.plotData(pend.mechanical.SimulationTree.p0);
+Plot2.plotData(pend.mechanical.SimulationTree.theta2);
 
 
 //Adding silly info
