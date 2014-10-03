@@ -1,4 +1,4 @@
-Simulation.addWatchLists([{name:"pendvars",variablePaths:["pend.mechanical.SimulationTree.theta", "pend.mechanical.SimulationTree.p",]}]);
+Simulation.addWatchLists([{name:"pendvars",variablePaths:["pend.mechanical.SimulationTree.theta1", "pend.mechanical.SimulationTree.p1","pend.mechanical.SimulationTree.theta2", "pend.mechanical.SimulationTree.p2"]}]);
 Simulation.startWatch();
 Simulation.start();
 
