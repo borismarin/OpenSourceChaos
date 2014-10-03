@@ -23,6 +23,16 @@
         <Line id ="y" quantity="theta2" scale="1" color="#0000ff" timeScale="1s"/>
     </Display>
 
+    <Display id="d3" title="p1 timeseries"
+        timeScale="1s" xmin="0" xmax="100" ymin="-2" ymax="2">
+        <Line id ="p1" quantity="p" scale="1" color="#0000ff" timeScale="1s"/>
+    </Display>
+
+    <Display id="d4" title="p2 timeseries"
+        timeScale="1s" xmin="0" xmax="100" ymin="-2" ymax="2">
+        <Line id ="p2" quantity="p" scale="1" color="#0000ff" timeScale="1s"/>
+    </Display>
+
 
 </Simulation>
 
