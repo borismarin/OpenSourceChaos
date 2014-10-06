@@ -44,11 +44,12 @@
 		<DerivedVariable name="dtheta2" dimension="per_time" value="6/ml2*(8*p2 - 3*cdt*p1)/(16 - 9*cdt^2)"/>
 		
 		<!-- cartesian coordinates for centres of mass -->
+		<!--
 		<DerivedVariable name="x1" dimension="length" value="l/2*sin(theta1)"/>
 		<DerivedVariable name="y1" dimension="length" value="-l/2*cos(theta1)"/>
 		<DerivedVariable name="x2" dimension="length" value="l*(sin(theta1) + 0.5*sin(theta2))"/>
 		<DerivedVariable name="y2" dimension="length" value="-l*(cos(theta1) + 0.5*cos(theta2))"/>
-		
+		-->
 
         <TimeDerivative variable="theta1" value="dtheta1"/>
         <TimeDerivative variable="theta2" value="dtheta2"/>
