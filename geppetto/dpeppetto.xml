@@ -25,6 +25,6 @@
 		</tns:aspect>	
 	</tns:entity>
 	
-	<tns:script>https://raw.githubusercontent.com/borismarin/OpenSourceChaos/geppetto_tests/geppetto/dpend_geppetto_script.js</tns:script>
+	<tns:script>https://raw.githubusercontent.com/borismarin/OpenSourceChaos/test_async/geppetto/dpend_geppetto_script.js</tns:script>
 	
 </tns:simulation>
