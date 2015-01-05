@@ -30,5 +30,5 @@ Popup1.setPosition(710,398);
 Popup1.setSize(160,498);
 
 Simulation.addDynamicVisualization(pend.visual, "pivot0", pend.mechanical.SimulationTree.theta, GEPPETTO.setLocalRotationZ, function(x){return x});
-Simulation.addDynamicVisualization(pend.visual, "arm0", pend.mechanical.SimulationTree.p, GEPPETTO.lightUpEntity, function(x){return (x+1)/2});
+Simulation.addDynamicVisualization(pend.visual, "arm0", pend.mechanical.SimulationTree.p, GEPPETTO.SceneController.lightUpEntity, function(x){return (x+1)/2});
 
